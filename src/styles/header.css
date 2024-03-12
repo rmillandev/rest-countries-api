@@ -1,0 +1,17 @@
+@import url('index.css');
+
+#light-mode-elements{
+    background-color: var(--light-mode-elements);
+}
+
+#dark-mode-elements{
+    background-color: var(--dark-mode-elements);
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 6rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+}
