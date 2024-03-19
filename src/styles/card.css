@@ -1,0 +1,38 @@
+@import url('index.css');
+
+.card{
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.img-card{
+    width: 100%;
+    height: 180px;
+    cursor: pointer;
+}
+
+.img-card img{
+    width: 100%;
+    height: 100%;
+}
+
+.information-card{
+    padding: 2rem;
+}
+
+.name-countrie{
+    font-weight: 900;
+    font-size: 17px;
+    padding-bottom: 1rem;
+}
+
+.population-countrie, .region-countrie,
+.capital-countrie{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+span{
+    font-weight: 400;
+}

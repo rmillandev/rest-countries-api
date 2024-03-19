@@ -2,4 +2,31 @@
 
 .app{
   width: 100%;
+
+}
+
+#light-mode-bg{
+  background-color: var(--light-mode-bg-body);
+  color: var(--text-light);
+}
+
+#dark-mode-bg{
+  background-color: var(--dark-mode-bg-body);
+  color: var(--text-dark);
+}
+
+#light-mode-elements{
+  background-color: var(--light-mode-elements);
+  color: var(--text-light);
+}
+
+#dark-mode-elements{
+  background-color: var(--dark-mode-elements);
+  color: var(--text-dark);
+}
+
+.container{
+  width: 95%;
+  max-width: 1400px;
+  margin: auto;
 }
