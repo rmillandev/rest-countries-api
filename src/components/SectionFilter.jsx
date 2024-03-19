@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
 import { useThemeContext } from "../context/themeContext"
 
 
-export const SectionFilter = () => {
+export const SectionFilter = ({onSearchinputChange}) => {
     const {contextTheme, themeColors} = useThemeContext()
     const [showFilter, setShowFilter] = useState(false)
     
@@ -13,7 +14,9 @@ export const SectionFilter = () => {
             <div className="container">
                 <div className="box-search"  id={contextTheme === 'light' ? themeColors.light2 : themeColors.dark2}>
                     <i className="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" className="input-search" placeholder="Search for a country..." id={contextTheme === 'light' ? themeColors.light2 : themeColors.dark2} />
+                    <input type="text" className="input-search" placeholder="Search for a country..." 
+                    onChange={(e) => onSearchinputChange(e.target.value)}
+                    id={contextTheme === 'light' ? themeColors.light2 : themeColors.dark2} />
                 </div>
                 <div className="box-filter"  >
                     <div onClick={handleShowFilter} id={contextTheme === 'light' ? themeColors.light2 : themeColors.dark2}>
