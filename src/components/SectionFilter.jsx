@@ -3,11 +3,16 @@ import { useState } from "react"
 import { useThemeContext } from "../context/themeContext"
 
 
-export const SectionFilter = ({onSearchinputChange}) => {
+export const SectionFilter = ({onSearchinputChange, onClikRegionFilter}) => {
     const {contextTheme, themeColors} = useThemeContext()
     const [showFilter, setShowFilter] = useState(false)
     
     const handleShowFilter = () => setShowFilter(!showFilter)
+
+    const handleClickRegion = (region) => {
+        onClikRegionFilter(region)
+        setShowFilter(false)
+    }
 
     return (
         <section className="section-filter"> 
@@ -24,12 +29,12 @@ export const SectionFilter = ({onSearchinputChange}) => {
                         <i className="fa-solid fa-chevron-down"></i>
                     </div>
                     <ul className={`regions ${showFilter ? 'visible' : ''}`} id={contextTheme === 'light' ? themeColors.light2 : themeColors.dark2}>
-                        <li className="filter-region">All</li>
-                        <li className="filter-region">Africa</li>
-                        <li className="filter-region">America</li>
-                        <li className="filter-region">Asia</li>
-                        <li className="filter-region">Europe</li>
-                        <li className="filter-region">Oceania</li>
+                        <li className="filter-region" onClick={() => handleClickRegion('All')}>All</li>
+                        <li className="filter-region" onClick={() => handleClickRegion('Africa')}>Africa</li>
+                        <li className="filter-region" onClick={() => handleClickRegion('Americas')}>America</li>
+                        <li className="filter-region" onClick={() => handleClickRegion('Asia')}>Asia</li>
+                        <li className="filter-region" onClick={() => handleClickRegion('Europe')}>Europe</li>
+                        <li className="filter-region" onClick={() => handleClickRegion('Oceania')}>Oceania</li>
                     </ul>
                 </div>
             </div>

@@ -19,6 +19,7 @@
 
 .information-card{
     padding: 2rem;
+    padding-bottom: 3.2rem;
 }
 
 .name-countrie{
@@ -31,8 +32,25 @@
 .capital-countrie{
     font-size: 14px;
     font-weight: 700;
+    padding-top: .3rem;
 }
 
 span{
     font-weight: 400;
+}
+
+/* Country Information  */
+.container-information{
+    position: fixed;
+    z-index: 100;
+    top: 5.5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    display: none;
+}
+
+.container-information.visible{
+    display: block;
 }

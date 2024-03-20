@@ -3,11 +3,14 @@ import '../styles/main.css'
 import { useThemeContext } from "../context/themeContext"
 import { useEffect, useState } from "react"
 import { Card } from "./CardCountrie"
+import { CountryInformation } from "./CountryInformation"
 
 export const Main = () => {
     const {contextTheme, themeColors} = useThemeContext()
     const [showButton, setShowButton] = useState(false);
     const [searchInput, setSearchInput] = useState('')
+    const [regionFilter, setRegionFilter] = useState('All')
+    const [showCountryInformation, setShowCountryInformation] = useState({state: false, codeCountry: ''})
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,15 +37,18 @@ export const Main = () => {
 
     const handleSearchInputChange = (value) => setSearchInput(value)
 
+    const handleRegionFilter = (region) => setRegionFilter(region)
+
     return (
         <main className="main" id={contextTheme === 'light' ? themeColors.light1 : themeColors.dark1}>
-            <SectionFilter onSearchinputChange={handleSearchInputChange}></SectionFilter>
-            <Card searchInput={searchInput}></Card>
+            <SectionFilter onSearchinputChange={handleSearchInputChange} onClikRegionFilter={handleRegionFilter}></SectionFilter>
+            <Card searchInput={searchInput} regionFilter={regionFilter} setShowCountryInformation={setShowCountryInformation}></Card>
             {
                 showButton && (
                     <button className="arrow-top" id={contextTheme === 'light' ? themeColors.light1 : themeColors.dark1} onClick={scrollToTop}>⬆️</button>
                 )
             }
+            <CountryInformation showCountryInformation={showCountryInformation} setShowCountryInformation={setShowCountryInformation}></CountryInformation>
         </main>
     )
 }
