@@ -4,6 +4,7 @@ import { useThemeContext } from "../context/themeContext"
 import { useEffect, useState } from "react"
 import { Card } from "./CardCountrie"
 import { CountryInformation } from "./CountryInformation"
+import { useFetch } from "../hooks/useFetch"
 
 export const Main = () => {
     const {contextTheme, themeColors} = useThemeContext()
@@ -11,7 +12,11 @@ export const Main = () => {
     const [searchInput, setSearchInput] = useState('')
     const [regionFilter, setRegionFilter] = useState('All')
     const [showCountryInformation, setShowCountryInformation] = useState({state: false, codeCountry: ''})
+    const { codeCountry } = showCountryInformation
 
+    const code = codeCountry !== '' ? codeCountry : 'co'
+    const { isLoading, data, errors } = useFetch(`https://restcountries.com/v3.1/alpha/${code}`)
+    
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 800) {
@@ -48,7 +53,7 @@ export const Main = () => {
                     <button className="arrow-top" id={contextTheme === 'light' ? themeColors.light1 : themeColors.dark1} onClick={scrollToTop}>⬆️</button>
                 )
             }
-            <CountryInformation showCountryInformation={showCountryInformation} setShowCountryInformation={setShowCountryInformation}></CountryInformation>
+            <CountryInformation isLoading={isLoading} data={data} errors={errors} showCountryInformation={showCountryInformation} setShowCountryInformation={setShowCountryInformation}></CountryInformation>
         </main>
     )
 }

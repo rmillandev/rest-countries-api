@@ -12,7 +12,7 @@ Los usuarios deberían ser capaces de:
 - Ver todos los países de la API en la página de inicio
 - Buscar un país utilizando un campo `input
 - Filtrar países por región
-- Hacer clic en un país para ver información más detallada en una página aparte.
-- Hacer clic en los países fronterizos en la página de detalles
+- Hacer clic en un país para ver información más detallada.
+- Hacer clic en los países fronterizos y mostrar su informacion.
 - Cambiar el esquema de color entre modo claro y oscuro.
 
